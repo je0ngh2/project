@@ -1,0 +1,44 @@
+name: Fetch News Data  # 뉴스 데이터 수집
+
+on: 
+  schedule: 
+    - cron: "0 23 * * *"  # 매 분마다 실행 (스케줄 변경 가능)
+  workflow_dispatch:  # 수동 실행 가능
+  push:  
+    branches: 
+      - main  # main 브랜치에 push 발생 시 실행
+
+jobs:
+  fetch_news:
+    runs-on: ubuntu-latest  # 최신 우분투 환경에서 실행
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v3  # 현재 GitHub 저장소를 clone
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # GitHub 권한 사용
+
+      - name: Python 설정
+        uses: actions/setup-python@v4  # Python 설치
+        with:
+          python-version: "3.9"
+
+      - name: 필요한 패키지 설치
+        run: | # 웹 크롤링 및 DB 저장 라이브러리 설치
+          pip install beautifulsoup4
+          pip install requests
+          pip install sqlite3
+          pip install gensim==3.8.3
+          pip install numpy
+          pip install scipy
+
+      - name: 뉴스 데이터 크롤링 및 저장
+        run: python news_script.py  # 웹 크롤링을 실행하는 Python 스크립트 실행
+
+      - name: 변경 사항 커밋 및 푸시
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-action@github.com"
+          git add *.db  # 모든 .db 파일 추가
+          git commit -m "Update news data (auto)" || echo "No changes to commit"
+          git push
