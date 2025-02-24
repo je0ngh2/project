@@ -19,7 +19,7 @@ url = "https://news.naver.com/section/100"
 # options = wb.ChromeOptions()
 # options.add_argument("--headless")  # 브라우저 창 없이 실행
 chrome_options = Options()
-chrome_options.add_argument("--user-data-dir=C:/Users/kccistc/Desktop/workspace/project") # 고유한 디렉토리 경로 지정
+chrome_options.add_argument("--user-data-dir=C:/Users/kccistc/Desktop/workspace/project/new_user_data") # 고유한 디렉토리 경로 지정
 
 driver = wb.Chrome(options=chrome_options)
 driver.get(url)
