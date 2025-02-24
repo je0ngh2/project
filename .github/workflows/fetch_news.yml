@@ -30,7 +30,7 @@ jobs:
           pip install sqlite3
           pip install gensim==3.8.3
           pip install numpy
-          pip install scipy
+          pip install scipy==1.10.1
 
       - name: 뉴스 데이터 크롤링 및 저장
         run: python news_script.py  # 웹 크롤링을 실행하는 Python 스크립트 실행
