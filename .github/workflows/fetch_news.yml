@@ -2,7 +2,7 @@ name: Fetch News Data  # 뉴스 데이터 수집
 
 on:
   schedule:
-    - cron: '* 23 * * *'  # 20분마다 실행 (UTC 기준)
+    - cron: '* 23 * * *'  # 오전 8시 실행 (코리아 기준)
   workflow_dispatch:  # 수동 실행 가능하게 추가 (옵션)
   push:
     branches:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   run_script:
-    runs-on: ubuntu-latest  # 최신 Ubuntu 환경에서 실행
+    runs-on: ubuntu-24.04  # 최신 Ubuntu 환경에서 실행
 
     steps:
       - name: Checkout repository
@@ -39,13 +39,16 @@ jobs:
           pip install scipy==1.7.3
           pip install webdriver-manager  # webdriver-manager 설치
 
-      - name: Install Google Chrome
+      - name: 크롬 브라우저 관련 환경 구성
         run: |
-          sudo apt-get update -y
-          sudo apt-get install -y wget curl unzip
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo dpkg -i google-chrome-stable_current_amd64.deb
-          sudo apt --fix-broken install -y
+          google-chrome --version
+          sudo apt-get install unzip
+          wget https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.126/linux64/chromedriver-linux64.zip
+          unzip chromedriver-linux64.zip
+          mv chromedriver-linux64/chromedriver chromedriver
+          sudo chmod +x chromedriver
 
       - name: Run the news script
         run: |
