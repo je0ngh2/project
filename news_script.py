@@ -67,11 +67,14 @@ def politic_article():
     # N뉴스 홈페이지에서 정치 버튼 클릭
     politic_botton = driver.find_element(By.CSS_SELECTOR, ".Nlnb_menu_inner li+li span")
     politic_botton.click()
-
-    # 헤드라인 누르기 정치, 경제, 사회 ,생활/문화, IT/과학, 세계 모두 동일한 코드임
-    headline_banner = driver.find_element(By.CSS_SELECTOR, "#newsct>div>div>a")
-    headline_banner.click()
-
+    try:
+        # 헤드라인 누르기 정치, 경제, 사회 ,생활/문화, IT/과학, 세계 모두 동일한 코드임
+        headline_banner = driver.find_element(By.CSS_SELECTOR, "#newsct>div>div>a")
+        headline_banner.click()
+    except NoSuchElementException:
+        print()
+    finally:
+        print()
     # for문 돌면서 헤드라인 뉴스 10개까지 수집. 10개 이하면 try, except 구문을 통해 빠져나옴.
     try:
         for i in range(10):
@@ -173,9 +176,14 @@ def economy_article():
     economy_botton = driver.find_element(By.CSS_SELECTOR, ".Nlnb_menu_inner li+li+li span")
     economy_botton.click()
 
-    # 헤드라인 누르기 정치, 경제, 사회 ,생활/문화, IT/과학, 세계 모두 동일한 코드임
-    headline_banner = driver.find_element(By.CSS_SELECTOR, "#newsct>div>div>a")
-    headline_banner.click()
+    try:
+        # 헤드라인 누르기 정치, 경제, 사회 ,생활/문화, IT/과학, 세계 모두 동일한 코드임
+        headline_banner = driver.find_element(By.CSS_SELECTOR, "#newsct>div>div>a")
+        headline_banner.click()
+    except NoSuchElementException:
+        print()
+    finally:
+        print()
 
     # for문 돌면서 헤드라인 뉴스 10개까지 수집. 10개 이하면 try, except 구문을 통해 빠져나옴.
     try:
@@ -275,9 +283,14 @@ def society_article():
     society_botton = driver.find_element(By.CSS_SELECTOR, ".Nlnb_menu_inner li+li+li+li span")
     society_botton.click()
 
-    # 헤드라인 누르기 정치, 경제, 사회 ,생활/문화, IT/과학, 세계 모두 동일한 코드임
-    headline_banner = driver.find_element(By.CSS_SELECTOR, "#newsct>div>div>a")
-    headline_banner.click()
+    try:
+        # 헤드라인 누르기 정치, 경제, 사회 ,생활/문화, IT/과학, 세계 모두 동일한 코드임
+        headline_banner = driver.find_element(By.CSS_SELECTOR, "#newsct>div>div>a")
+        headline_banner.click()
+    except NoSuchElementException:
+        print()
+    finally:
+        print()
 
     # for문 돌면서 헤드라인 뉴스 10개까지 수집. 10개 이하면 try, except 구문을 통해 빠져나옴.
     try:
@@ -383,9 +396,14 @@ def culture_article():
     culture_botton = driver.find_element(By.CSS_SELECTOR, ".Nlnb_menu_inner li+li+li+li+li span")
     culture_botton.click()
 
-    # 헤드라인 누르기 정치, 경제, 사회 ,생활/문화, IT/과학, 세계 모두 동일한 코드임
-    headline_banner = driver.find_element(By.CSS_SELECTOR, "#newsct>div>div>a")
-    headline_banner.click()
+    try:
+        # 헤드라인 누르기 정치, 경제, 사회 ,생활/문화, IT/과학, 세계 모두 동일한 코드임
+        headline_banner = driver.find_element(By.CSS_SELECTOR, "#newsct>div>div>a")
+        headline_banner.click()
+    except NoSuchElementException:
+        print()
+    finally:
+        print()
 
     # for문 돌면서 헤드라인 뉴스 10개까지 수집. 10개 이하면 try, except 구문을 통해 빠져나옴.
     try:
@@ -491,9 +509,14 @@ def it_article():
     it_botton = driver.find_element(By.CSS_SELECTOR, ".Nlnb_menu_inner li+li+li+li+li+li span")
     it_botton.click()
 
-    # 헤드라인 누르기 정치, 경제, 사회 ,생활/문화, IT/과학, 세계 모두 동일한 코드임
-    headline_banner = driver.find_element(By.CSS_SELECTOR, "#newsct>div>div>a")
-    headline_banner.click()
+    try:
+        # 헤드라인 누르기 정치, 경제, 사회 ,생활/문화, IT/과학, 세계 모두 동일한 코드임
+        headline_banner = driver.find_element(By.CSS_SELECTOR, "#newsct>div>div>a")
+        headline_banner.click()
+    except NoSuchElementException:
+        print()
+    finally:
+        print()
 
     # for문 돌면서 헤드라인 뉴스 10개까지 수집. 10개 이하면 try, except 구문을 통해 빠져나옴.
     try:
@@ -597,9 +620,14 @@ def world_article():
     world_botton = driver.find_element(By.CSS_SELECTOR, ".Nlnb_menu_inner li+li+li+li+li+li+li span")
     world_botton.click()
 
-    # 헤드라인 누르기 정치, 경제, 사회 ,생활/문화, IT/과학, 세계 모두 동일한 코드임
-    headline_banner = driver.find_element(By.CSS_SELECTOR, "#newsct>div>div>a")
-    headline_banner.click()
+    try:
+        # 헤드라인 누르기 정치, 경제, 사회 ,생활/문화, IT/과학, 세계 모두 동일한 코드임
+        headline_banner = driver.find_element(By.CSS_SELECTOR, "#newsct>div>div>a")
+        headline_banner.click()
+    except NoSuchElementException:
+        print()
+    finally:
+        print()
 
     # for문 돌면서 헤드라인 뉴스 10개까지 수집. 10개 이하면 try, except 구문을 통해 빠져나옴.
     try:
